@@ -1,9 +1,9 @@
+---
 name: Elternbrief
 description: Einen neuen Elternbrief veröffentlichen
 title: "Hier bitte die Überschrift des Elternbriefes"
 labels: ["elternbrief"]
-body:
-  - type: markdown
-    attributes:
-      value: |
-        Und hier bitte den Inhalt des Elternbriefes!
+assignees: ''
+---
+
+Und hier bitte den Inhalt des Elternbriefes!
