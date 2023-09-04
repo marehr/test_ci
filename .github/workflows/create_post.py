@@ -5,6 +5,7 @@ post_template = Template("""
 layout: elternbrief
 title: "${title}"
 date: "${date}"
+modified: "${modified}"
 category: elternbrief
 ---
 
@@ -33,10 +34,14 @@ def main():
         # YEAR-MONTH-DAY-title.MARKUP
         date_str = post['created_at'].strftime("%Y-%m-%d")
         slug_title = slugify(post['title'])
-        return f'{date_str}-{slug_title}'
+        return f'{date_str}-{slug_title}.md'
 
+    def to_jekyll_date(date):
+        return date.strftime("%Y-%m-%d %H:%M:%S") # YYYY-MM-DD HH:MM:SS
+    
     template_post = dict(**post)
-    template_post['date'] = template_post['created_at'].strftime("%Y-%m-%d %H:%M:%S") # YYYY-MM-DD HH:MM:SS
+    template_post['date'] = to_jekyll_date(to_jekyll_date)
+    template_post['modified'] = to_jekyll_date(template_post['updated_at'])
     template_post['filename'] = post_filename(template_post)
 
     print (f"post_id: {post['id']}")
