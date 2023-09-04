@@ -17,9 +17,9 @@ on:
 # This modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
 #
 # In this example, the `pull-requests: read` permission is needed for the `trilom/file-changes-action` action that is used later in this workflow.
-# permissions:
-  # contents: read
-  # pull-requests: read
+permissions:
+  contents: write
+  pull-requests: write
 # The `concurrency` key ensures that only a single workflow in the same concurrency group will run at the same time. For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 # `concurrency.group` generates a concurrency group name from the workflow name and pull request information. The `||` operator is used to define fallback values. 
 # `concurrency.cancel-in-progress` cancels any currently running job or workflow in the same concurrency group.
@@ -63,7 +63,6 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.CREATE_PULL_REQUEST_TOKEN }}
           add-paths: |
             _posts/*.md
       - name: Check outputs
