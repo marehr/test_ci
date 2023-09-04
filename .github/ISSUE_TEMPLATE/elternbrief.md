@@ -1,6 +1,6 @@
 ---
 name: Elternbrief
-description: Einen neuen Elternbrief veröffentlichen
+about: Einen neuen Elternbrief veröffentlichen
 title: "Hier bitte die Überschrift des Elternbriefes"
 labels: ["elternbrief"]
 assignees: ''
