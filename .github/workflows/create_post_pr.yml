@@ -36,13 +36,14 @@ jobs:
     # In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by GitHub. For more information on these options, see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job)."
     # runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     runs-on: ubuntu-latest
-    # if: contains(github.issue.labels.*.name, 'post')
+    # if: contains(github.event.issue.labels.*.name, 'post')
     # The `steps` key groups together all the steps that will run as part of the `check-links` job. Each job in a workflow has its own `steps` section.
     steps:
       - run: |
           echo $EVENT
         env:
           EVENT: ${{ toJson(github.event) }}
+          HAS_LABEL: ${{ toJson(contains(github.event.issue.labels.*.name, 'post')) }}
       # The `uses` key tells the job to retrieve the action named `actions/checkout`. This is an action that checks out your repository and downloads it to the runner, allowing you to run actions against your code (such as testing tools). You must use the checkout action any time your workflow will use the repository's code or you are using an action defined in the repository.
       - name: Checkout
         uses: actions/checkout@v3
