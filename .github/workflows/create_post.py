@@ -40,7 +40,7 @@ def main():
         return date.strftime("%Y-%m-%d %H:%M:%S") # YYYY-MM-DD HH:MM:SS
     
     template_post = dict(**post)
-    template_post['date'] = to_jekyll_date(to_jekyll_date)
+    template_post['date'] = to_jekyll_date(template_post['created_at'])
     template_post['modified'] = to_jekyll_date(template_post['updated_at'])
     template_post['filename'] = post_filename(template_post)
 
