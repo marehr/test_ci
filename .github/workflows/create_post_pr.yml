@@ -30,7 +30,7 @@ on:
 # The `jobs` key groups together all the jobs that run in the workflow file.
 jobs:
   # This line defines a job with the ID `check-links` that is stored within the `jobs` key.
-  check-links:
+  create_post_pr:
     # The `runs-on` key in this example configures the job to run on a GitHub-hosted runner or a self-hosted runner, depending on the repository running the workflow. 
     # 
     # In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by GitHub. For more information on these options, see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job)."
@@ -54,7 +54,7 @@ jobs:
           ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
           ISSUE_UPDATED_AT: ${{ github.event.issue.updated_at }}
       - run: |
-          python .github/workflow/create_post.py
+          python .github/workflows/create_post.py
         env:
           ISSUE_ID: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
