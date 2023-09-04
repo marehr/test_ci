@@ -53,5 +53,8 @@ def main():
 
     print (post_template.substitute(**template_post))
 
+    with open(template_post['filename'], "w") as f:
+        f.write(post_template.substitute(**template_post))
+
 if __name__ == "__main__":
     main()
