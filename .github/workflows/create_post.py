@@ -23,7 +23,7 @@ def main():
         'updated_at': os.environ['ISSUE_UPDATED_AT'], 
     }
 
-    print (f"post_id: {post['id']']}")
+    print (f"post_id: {post['id']}")
     print (f"post_title: {post['title']}")
     print (f"post_body: {post['body']}")
     print (f"post_created_at: {post['created_at']}")
