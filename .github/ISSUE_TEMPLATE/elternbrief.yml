@@ -1,4 +1,5 @@
 name: Elternbrief
 description: Einen neuen Elternbrief veröffentlichen
-title: ""
+title: "Hier bitte die Überschrift des Elternbriefes"
 labels: ["elternbrief"]
+body: "Und hier bitte den Inhalt des Elternbriefes"
