@@ -55,7 +55,7 @@ def main():
 
     print (post_template.substitute(**template_post))
 
-    with open(f'{OUTPUT_FOLDER}/{template_post['filename'])', "w") as f:
+    with open(OUTPUT_FOLDER + '/' + template_post['filename'], "w") as f:
         f.write(post_template.substitute(**template_post))
 
 if __name__ == "__main__":
