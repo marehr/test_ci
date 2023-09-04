@@ -8,7 +8,7 @@ date: "${date}"
 category: elternbrief
 ---
 
-${post_body}
+${body}
 
 """)
 
