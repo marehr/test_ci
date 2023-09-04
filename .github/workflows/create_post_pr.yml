@@ -40,6 +40,7 @@ jobs:
     # The `steps` key groups together all the steps that will run as part of the `check-links` job. Each job in a workflow has its own `steps` section.
     steps:
       - run: |
+          echo $HAS_LABEL
           echo $EVENT
         env:
           EVENT: ${{ toJson(github.event) }}
