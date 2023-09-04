@@ -39,14 +39,22 @@ jobs:
     # The `steps` key groups together all the steps that will run as part of the `check-links` job. Each job in a workflow has its own `steps` section.
     steps:
       # The `uses` key tells the job to retrieve the action named `actions/checkout`. This is an action that checks out your repository and downloads it to the runner, allowing you to run actions against your code (such as testing tools). You must use the checkout action any time your workflow will use the repository's code or you are using an action defined in the repository.
-      # - name: Checkout
-      #   uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
       - run: |
           echo "issue_id: $ISSUE_ID"
           echo "issue_title: $ISSUE_TITLE"
           echo "issue_created_at: $ISSUE_CREATED_AT"
           echo "issue_updated_at: $ISSUE_UPDATED_AT"
           echo "issue_body: $ISSUE_BODY"
+        env:
+          ISSUE_ID: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
+          ISSUE_UPDATED_AT: ${{ github.event.issue.updated_at }}
+      - run: |
+          python test_ci/.github/workflow/create_post.py
         env:
           ISSUE_ID: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
