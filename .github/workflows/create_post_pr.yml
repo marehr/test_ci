@@ -52,6 +52,9 @@ jobs:
           ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
           ISSUE_UPDATED_AT: ${{ github.event.issue.updated_at }}
       - run: |
+          git status
+          git diff
+      - run: |
           echo $EVENT
         env:
           EVENT: ${{ toJson(github.event) }}
