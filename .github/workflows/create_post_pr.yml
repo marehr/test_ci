@@ -54,7 +54,7 @@ jobs:
           ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
           ISSUE_UPDATED_AT: ${{ github.event.issue.updated_at }}
       - run: |
-          python test_ci/.github/workflow/create_post.py
+          python .github/workflow/create_post.py
         env:
           ISSUE_ID: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
