@@ -47,12 +47,7 @@ def main():
     template_post['filename'] = post_filename(template_post)
 
     print (f"post_id: {post['id']}")
-    print (f"post_title: {post['title']}")
-    print (f"post_body: {post['body']}")
-    print (f"post_created_at: {post['created_at']}")
-    print (f"post_updated_at: {post['updated_at']}")
     print (f"filename: {template_post['filename']}")
-
     print (post_template.substitute(**template_post))
 
     with open(OUTPUT_FOLDER + '/' + template_post['filename'], "w") as f:
