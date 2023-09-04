@@ -29,7 +29,7 @@ def main():
     }
 
     template_post = dict(**post)
-    template_post['date'] = template_post['created_at'].strftime("YYYY-MM-DD HH:MM:SS") # YYYY-MM-DD HH:MM:SS
+    template_post['date'] = template_post['created_at'].strftime("%Y-%m-%d %H:%M:%S") # YYYY-MM-DD HH:MM:SS
 
     print (f"post_id: {post['id']}")
     print (f"post_title: {post['title']}")
