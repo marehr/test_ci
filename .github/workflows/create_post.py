@@ -16,11 +16,11 @@ def main():
     import os
 
     post = {
-        id: os.environ['ISSUE_ID']
-        title: os.environ['ISSUE_TITLE']
-        body: os.environ['ISSUE_BODY']
-        created_at: os.environ['ISSUE_CREATED_AT']
-        updated_at: os.environ['ISSUE_UPDATED_AT']
+        id: os.environ['ISSUE_ID'], 
+        title: os.environ['ISSUE_TITLE'], 
+        body: os.environ['ISSUE_BODY'], 
+        created_at: os.environ['ISSUE_CREATED_AT'], 
+        updated_at: os.environ['ISSUE_UPDATED_AT'], 
     }
 
     print (f"post_id: {post.id}")
