@@ -1,5 +1,5 @@
 # This defines the name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
-name: 'Create Post-PR from issue!'
+name: 'Create Elternbrief from issue!'
 
 # The `on` key lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 on:
@@ -30,7 +30,7 @@ permissions:
 # The `jobs` key groups together all the jobs that run in the workflow file.
 jobs:
   # This line defines a job with the ID `check-links` that is stored within the `jobs` key.
-  create_post_pr:
+  elternbrief_pr:
     # The `runs-on` key in this example configures the job to run on a GitHub-hosted runner or a self-hosted runner, depending on the repository running the workflow. 
     # 
     # In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by GitHub. For more information on these options, see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job)."
