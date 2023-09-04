@@ -42,18 +42,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - run: |
-          echo "issue_id: $ISSUE_ID"
-          echo "issue_title: $ISSUE_TITLE"
-          echo "issue_created_at: $ISSUE_CREATED_AT"
-          echo "issue_updated_at: $ISSUE_UPDATED_AT"
-          echo "issue_body: $ISSUE_BODY"
-        env:
-          ISSUE_ID: ${{ github.event.issue.number }}
-          ISSUE_TITLE: ${{ github.event.issue.title }}
-          ISSUE_BODY: ${{ github.event.issue.body }}
-          ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
-          ISSUE_UPDATED_AT: ${{ github.event.issue.updated_at }}
-      - run: |
           python .github/workflows/create_post.py
         env:
           ISSUE_ID: ${{ github.event.issue.number }}
